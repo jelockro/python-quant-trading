@@ -2,18 +2,18 @@
 ## A machine-learning python implementation of quantitative trading models
 
 In order to Run, change directories to QuantTrading:
-'''
+```
 cd QuantTrading
-'''
+```
 and enter the following code:
 
-'''
+```
 export FLASK_APP=server.py
-'''
+```
 now you can start the app by running:
-'''
+```
 flask run
-'''
+```
 
 ## Stage 1: 
 ### Web-based Interface to Scrape CyrpotoCurrency Exchange Rate Data
