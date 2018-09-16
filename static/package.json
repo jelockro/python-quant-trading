@@ -1,13 +1,17 @@
 {
   "name": "quanttrading",
   "version": "1.0.0",
-  "description": "",
+  "description": "A QuantTrading App for CryptoCurrency",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -p --progress --config webpack.config.js",
+    "dev-buid": "webpack --progress -d --config webpack.config.js",
+    "watch": "webpack --progress -d --config webpack.config.js --watch"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": ["cryptocurrency", "python", "react", "webpack", "npm", "pipenv"],
+  "author": "Josh Lockrow",
+  "license": "MIT",
   "devDependencies": {
     "webpack": "^4.19.0"
   }
