@@ -9,7 +9,8 @@ def create_app(test_config=None):
                 static_folder="../static/dist", template_folder="../static")
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'qt.sqlite'), #qt for quantitative trading
+        # qt for quantitative trading
+        DATABASE=os.path.join(app.instance_path, 'qt.sqlite'),
     )
 
     if test_config is None:
@@ -33,8 +34,10 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
-    
 
     from . import db
     db.init_app(app)
+    from . import auth
+    app.register_blueprint(auth.bp)
+
     return app
