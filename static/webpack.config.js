@@ -1,10 +1,10 @@
 const webpack = require('webpack');
 
-const config = {
+module.exports = {
 	entry: __dirname + '/js/index.jsx',
 	output: {
 		path: __dirname + '/dist',
-		filename: 'bundle.js',
+		filename: 'bundle.js'
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.css']
@@ -12,12 +12,10 @@ const config = {
 	module: {
 		rules: [
           {
-          	test: /\.jsx?/,
+          	test: /\.jsx?$/,  // Match both .js and .jsx files
           	exclude: /node_modules/,
-          	use: 'babel-loader'
+          	loader: 'babel-loader'
           }
 		]
 	}
 };
-
-module.exports = config;

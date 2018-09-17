@@ -1,11 +1,12 @@
 import os
+from flask import Flask, render_template
 
-from flask import Flask
 
 def create_app(test_config=None):
-	# application factory function 
-	# that creates and configures the app
-    app = Flask(__name__, instance_relative_config=True)
+    # application factory function
+    # that creates and configures the app
+    app = Flask(__name__, instance_relative_config=True,
+                static_folder="../static/dist", template_folder="../static")
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'qt.sqlite'),
@@ -24,7 +25,11 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    @app.route("/")
+    def index():
+        return render_template("index.html")
     # a simple page that says hello
+
     @app.route('/hello')
     def hello():
         return 'Hello, World!'
